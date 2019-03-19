@@ -1,0 +1,45 @@
+import pandas as pd
+
+ufo = pd.read_csv("http://bit.ly/uforeports")
+ufo.head()
+
+City	Colors Reported	Shape Reported	State	Time
+0	Ithaca	NaN	TRIANGLE	NY	6/1/1930 22:00
+1	Willingboro	NaN	OTHER	NJ	6/30/1930 20:00
+2	Holyoke	NaN	OVAL	CO	2/15/1931 14:00
+3	Abilene	NaN	DISK	KS	6/1/1931 13:00
+4	New York Worlds Fair	NaN	LIGHT	NY	4/18/1933 19:00
+
+ufo["City"].head() # wczytanie wybranej kolumny, wielkosc liter ma znaczenie !
+
+0                  Ithaca
+1             Willingboro
+2                 Holyoke
+3                 Abilene
+4    New York Worlds Fair
+Name: City, dtype: object
+
+ufo.City.head() # drugi sposób na wczytanie jednej kolumny , nie dziala gdy nazwa kolumny
+                #jest dwuczlonowa i dzielona spacja ! Jeżeli nazwa kolumny jest taka sama
+                #jak nazwa funkcji dla kolumny w pandas ta metoda także nie zadziała ! (np. ufo.shape)
+                
+0                  Ithaca
+1             Willingboro
+2                 Holyoke
+3                 Abilene
+4    New York Worlds Fair
+Name: City, dtype: object
+
+ufo["Location"] = ufo.City + ", " + ufo.State # tworzenie nowej kolumny w bazie danych (nazwa jako string i w []),
+                                              # można dodawać do siebie kolumny o takim samym typie
+                                              #(object + object, int + int)
+ufo.head()
+
+
+City	Colors Reported	Shape Reported	State	Time	Location
+0	Ithaca	NaN	TRIANGLE	NY	6/1/1930 22:00	Ithaca, NY
+1	Willingboro	NaN	OTHER	NJ	6/30/1930 20:00	Willingboro, NJ
+2	Holyoke	NaN	OVAL	CO	2/15/1931 14:00	Holyoke, CO
+3	Abilene	NaN	DISK	KS	6/1/1931 13:00	Abilene, KS
+4	New York Worlds Fair	NaN	LIGHT	NY	4/18/1933 19:00	New York Worlds Fair, NY
+
