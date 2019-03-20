@@ -74,21 +74,24 @@ ufo.columns = ufo.columns.str.replace(" ","_")
 ufo.columns #sposob polega na zmianie danego znaku za pomoca funkcji str.replace, bardzo uzytyeczny sposob gdy
             # mamy baze danych z ogromna iloscia kolumn i tzreba zmianic ich nazwy badz zamienic spację na "_"
             
-Index(['city', 'colors_reported', 'shape_reported', 'state', 'time'], dtype='object')           
+Index(['city', 'colors_reported', 'shape_reported', 'state', 'time'], dtype='object')  
+
+#.............................................................................................................................]
+
+ufo = pd.read_csv('http://bit.ly/uforeports')
+ufo.head()
+
+ufo.shape
+(18241, 5)
+
+ufo.drop("Colors Reported", axis=1, inplace=True)
+ufo.head() # usuniencie kolumny z bazy danych (axis=1 oznacza kolumnę), inplace =True dla potwierdzenia zmian
+           # dla kilku kolumn nazlezy jak argument uzyc liste z nazwami kolumn do usuniecia
+
+ufo.drop([0,1], axis=0, inplace=True)
+ufo.head() #analogicznie usuwa wybrane wiersz z bazy danych, jako argument podaje sie nazwe indexu
+           #w tym przypadku jest to [0,1] , axis=0 dla wiersza
+           
+ufo.shape
+(18239, 4)
  
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
