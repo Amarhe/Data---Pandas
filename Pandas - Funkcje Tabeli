@@ -35,3 +35,18 @@ genre              object
 duration            int64
 actors_list        object
 dtype: object
+
+#......................................................................................................................................
+movies = pd.read_csv("http://bit.ly/imdbratings")
+movies.head() 
+
+movies["title"].sort_values(ascending=False) # sortuje wartosci w podanej kolumnie
+#(w przypadku typu: object jest to do A do Z) w celu odwrocenia tego na Z to A uzywa sie argumentu ascending
+# i przypisuje sie wartosc False, inplace=True dla potwierdzenia zmian
+
+movies.sort_values("title") # opcja sortowania jak w przypadku wyżej ale wczytuje cala zawartosc bazy danych,
+                            # ale posortowana jest wedlug podanej kolumny
+			    
+movies.sort_values(["content_rating","duration"]) #sortowanie wedlug kilku kolumn, wypisuje sie je w kolejnosci
+                                                  # sortowania w liscie jako argument			    
+
