@@ -1,0 +1,7 @@
+%%HTML
+<style type="text/css">
+table.dataframe td, table.dataframe th {
+    border-style: inset;
+    border-color: #639DDB;
+    background-color: #C5DAF0 ;
+}
