@@ -43,3 +43,52 @@ City	Colors Reported	Shape Reported	State	Time	Location
 3	Abilene	NaN	DISK	KS	6/1/1931 13:00	Abilene, KS
 4	New York Worlds Fair	NaN	LIGHT	NY	4/18/1933 19:00	New York Worlds Fair, NY
 
+#................................................................................................................................
+
+ufo = pd.read_csv("http://bit.ly/uforeports")
+ufo.head()
+
+ufo.columns # wczytuje liste z nazwami kolumn jakie znajdują sie w importowanej bazie danych
+
+Index(['City', 'Colors Reported', 'Shape Reported', 'State', 'Time'], dtype='object')
+
+ufo.rename(columns={"Colors Reported" : "Colors_Reported",
+                   "Shape Reported": "Shape_Reported"}, inplace=True)
+ufo.columns # sposob na zmianienie nazwy kolumn (uzywa sie funkcji slownika jako argumentu dla funkcji rename)
+
+Index(['city', 'colors_reported', 'shape_reported', 'state', 'time'], dtype='object')
+
+new_columns = ["city", "colors reported", "shape reported", "state", "time"]
+ufo.columns = new_columns
+ufo.columns  # kolejny sposob na zmiane nazw (stworzenie listy z nowymi nazwami i przypisanie jej do funkcji .rename)
+
+Index(['city', 'colors reported', 'shape reported', 'state', 'time'], dtype='object')
+
+ufo = pd.read_csv("http://bit.ly/uforeports", names = new_columns, header=0)
+ufo.columns # kolejny sposób na zmiane nazw to podczas wczytywania bazy danych uzyc argumentu name= ,
+           # i przypisac do niego liste z nazwami (należy użyc rownież argumentu header=0 aby zadzialalo)
+           
+ Index(['city', 'colors reported', 'shape reported', 'state', 'time'], dtype='object')
+ 
+ufo.columns = ufo.columns.str.replace(" ","_")
+ufo.columns #sposob polega na zmianie danego znaku za pomoca funkcji str.replace, bardzo uzytyeczny sposob gdy
+            # mamy baze danych z ogromna iloscia kolumn i tzreba zmianic ich nazwy badz zamienic spację na "_"
+            
+Index(['city', 'colors_reported', 'shape_reported', 'state', 'time'], dtype='object')           
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
