@@ -50,3 +50,12 @@ movies.sort_values("title") # opcja sortowania jak w przypadku wyżej ale wczytu
 movies.sort_values(["content_rating","duration"]) #sortowanie wedlug kilku kolumn, wypisuje sie je w kolejnosci
                                                   # sortowania w liscie jako argument			    
 
+#......................................................................................................................................
+
+movies = pd.read_csv("http://bit.ly/imdbratings")
+movies.head()
+
+movies[movies.duration >= 200] # filtrowanie tabeli danych przez wartosc wybranej kolumny, wstawiamy warunek dla 
+# wartosci w danej kolumnie i wczytujemy wierszy tylko te ktore spełniaja warunek
+
+movies[movies.duration >= 200].genre # wczytywanie wybranej kolumny ( nie calej tabeli ) dla danego warunku
