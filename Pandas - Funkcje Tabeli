@@ -59,3 +59,18 @@ movies[movies.duration >= 200] # filtrowanie tabeli danych przez wartosc wybrane
 # wartosci w danej kolumnie i wczytujemy wierszy tylko te ktore spełniaja warunek
 
 movies[movies.duration >= 200].genre # wczytywanie wybranej kolumny ( nie calej tabeli ) dla danego warunku
+
+#......................................................................................................................................
+
+movies = pd.read_csv("http://bit.ly/imdbratings")
+movies.head()
+
+movies[(movies.duration >= 200) & (movies.genre == "Drama")] # sposob na filtracje danych dla wiekszej
+                                  #ilosci warunków, kazdy warunek musi byc w osobnym zwyklym nawiasie,
+                                      #warunki muszą byc polaczaone znakami "and" = "&" lub "or" = "|"
+				      
+movies[movies.genre.isin(["Drama", "Action", "Crime"])] # sposob na filtracje dla kilku warunków
+                                                        #ale w jednej kolumnie za pomoca funkcji "isin"	
+							
+
+
