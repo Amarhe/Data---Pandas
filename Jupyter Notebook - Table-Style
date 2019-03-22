@@ -5,3 +5,9 @@ table.dataframe td, table.dataframe th {
     border-color: #639DDB;
     background-color: #C5DAF0 ;
 }
+
+#lub
+
+from IPython.core.display import HTML
+css = open('style-table.css').read() + open('style-notebook.css').read()
+HTML('<style>{}</style>'.format(css))
